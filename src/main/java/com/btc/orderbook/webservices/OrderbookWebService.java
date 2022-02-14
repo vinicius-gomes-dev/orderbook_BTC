@@ -32,19 +32,9 @@ public class OrderbookWebService {
 		List<Orderbook> response = new ArrayList<>();
 		
 		for(int line = 0; line < asks.length; line++) {
-//			System.out.println("\n[" + line + "] ASK PRICE: " + asks[line][0]);
-//			System.out.println("[" + line + "] ASK VOLUME: " + asks[line][1]);
-//			System.out.println("[" + line + "] BID PRICE: " + bids[line][0]);
-//			System.out.println("[" + line + "] BID VOLUME: " + bids[line][1]);
-//			System.out.println("");
-			
 			response.add(new Orderbook(null, asks[line][0], asks[line][1], bids[line][0], bids[line][1], timestamp));
 		}
-		
-
-//		System.out.println("## RESPONSE ##\n\n" + response.toString());
-//		System.out.println("\n\n\n## FINISH ##");
-		
+				
 		return response;
 	}
 }
