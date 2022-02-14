@@ -1,11 +1,9 @@
 package com.btc.orderbook.webservices;
 
-import java.math.BigInteger;
-
 public class OrderbookWsDTO {
 	private String[][] asks;
 	private String[][] bids;
-	private BigInteger timestamp;
+	private String timestamp;
 	
 	
 	public String[][] getAsks() {
@@ -20,10 +18,10 @@ public class OrderbookWsDTO {
 	public void setBids(String[][] bids) {
 		this.bids = bids;
 	}
-	public BigInteger getTimestamp() {
+	public String getTimestamp() {
 		return timestamp;
 	}
-	public void setTimestamp(BigInteger timestamp) {
+	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
 }

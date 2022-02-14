@@ -16,24 +16,25 @@ public class Orderbook {
 	private Long id;
 	
 	@Column(name = "ask_price", nullable = false)
-	private Long askPrice;
+	private String askPrice;
 	
 	@Column(name = "ask_volume", nullable = false)
-	private Long askVolume;
+	private String askVolume;
 	
 	@Column(name = "bid_price", nullable = false)
-	private Long bidPrice;
+	private String bidPrice;
 	
 	@Column(name = "bid_volume", nullable = false)
-	private Long bidVolume;
+	private String bidVolume;
 	
 	@Column(name = "orderbook_timestamp", nullable = false)
-	private Long timestamp;
+	private String timestamp;
 	
 	
 	public Orderbook() {}
 
-	public Orderbook(Long id, Long askPrice, Long askVolume, Long bidPrice, Long bidVolume, Long timestamp) {
+	public Orderbook(Long id, String askPrice, String askVolume, String bidPrice, String bidVolume,
+			String timestamp) {
 		this.id = id;
 		this.askPrice = askPrice;
 		this.askVolume = askVolume;
@@ -42,51 +43,48 @@ public class Orderbook {
 		this.timestamp = timestamp;
 	}
 
+	
 	public Long getId() {
 		return id;
 	}
 
-	public Long getAskPrice() {
+	public String getAskPrice() {
 		return askPrice;
 	}
 
-	public void setAskPrice(Long askPrice) {
+	public void setAskPrice(String askPrice) {
 		this.askPrice = askPrice;
 	}
 
-	public Long getAskVolume() {
+	public String getAskVolume() {
 		return askVolume;
 	}
 
-	public void setAskVolume(Long askVolume) {
+	public void setAskVolume(String askVolume) {
 		this.askVolume = askVolume;
 	}
 
-	public Long getBidPrice() {
+	public String getBidPrice() {
 		return bidPrice;
 	}
 
-	public void setBidPrice(Long bidPrice) {
+	public void setBidPrice(String bidPrice) {
 		this.bidPrice = bidPrice;
 	}
 
-	public Long getBidVolume() {
+	public String getBidVolume() {
 		return bidVolume;
 	}
 
-	public void setBidVolume(Long bidVolume) {
+	public void setBidVolume(String bidVolume) {
 		this.bidVolume = bidVolume;
 	}
 
-	public Long getTimestamp() {
+	public String getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(Long timestamp) {
+	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
-
-	
-	
-	
 }

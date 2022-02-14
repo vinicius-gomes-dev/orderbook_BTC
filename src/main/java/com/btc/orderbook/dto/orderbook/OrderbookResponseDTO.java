@@ -3,16 +3,16 @@ package com.btc.orderbook.dto.orderbook;
 import com.btc.orderbook.models.Orderbook;
 
 public class OrderbookResponseDTO {
-	private Long askPrice;
-	private Long askVolume;
-	private Long bidPrice;
-	private Long bidVolume;
-	private Long timestamp;
+	private String askPrice;
+	private String askVolume;
+	private String bidPrice;
+	private String bidVolume;
+	private String timestamp;
 	
 	
 	public OrderbookResponseDTO() {}
 
-	public OrderbookResponseDTO(Long askPrice, Long askVolume, Long bidPrice, Long bidVolume, Long timestamp) {
+	public OrderbookResponseDTO(String askPrice, String askVolume, String bidPrice, String bidVolume, String timestamp) {
 		this.askPrice = askPrice;
 		this.askVolume = askVolume;
 		this.bidPrice = bidPrice;
@@ -29,43 +29,51 @@ public class OrderbookResponseDTO {
 	}
 
 	
-	public Long getAskPrice() {
+	public String getAskPrice() {
 		return askPrice;
 	}
 
-	public void setAskPrice(Long askPrice) {
+	public void setAskPrice(String askPrice) {
 		this.askPrice = askPrice;
 	}
 
-	public Long getAskVolume() {
+	public String getAskVolume() {
 		return askVolume;
 	}
 
-	public void setAskVolume(Long askVolume) {
+	public void setAskVolume(String askVolume) {
 		this.askVolume = askVolume;
 	}
 
-	public Long getBidPrice() {
+	public String getBidPrice() {
 		return bidPrice;
 	}
 
-	public void setBidPrice(Long bidPrice) {
+	public void setBidPrice(String bidPrice) {
 		this.bidPrice = bidPrice;
 	}
 
-	public Long getBidVolume() {
+	public String getBidVolume() {
 		return bidVolume;
 	}
 
-	public void setBidVolume(Long bidVolume) {
+	public void setBidVolume(String bidVolume) {
 		this.bidVolume = bidVolume;
 	}
 
-	public Long getTimestamp() {
+	public String getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(Long timestamp) {
+	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
+
+	
+	@Override
+	public String toString() {
+		return "OrderbookResponseDTO [askPrice=" + askPrice + ", askVolume=" + askVolume + ", bidPrice=" + bidPrice
+				+ ", bidVolume=" + bidVolume + ", timestamp=" + timestamp + "]";
+	}
+	
 }
