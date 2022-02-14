@@ -1,18 +1,19 @@
 package com.btc.orderbook.webservices;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.btc.orderbook.models.Orderbook;
+
 public class OrderbookWebService {
 	
-//	static String webservice = "https://www.mercadobitcoin.net/api/BTC/orderbook/";
-	
-	public static void getAllOrderbook() throws Exception {
-//		String urlToCall = webservice;
+	public static List<Orderbook> getAllOrderbook() throws Exception {
 		
-		RestTemplate template = new RestTemplate();
 		
 		UriComponents uri = UriComponentsBuilder.newInstance()
 												.scheme("https")
@@ -20,35 +21,30 @@ public class OrderbookWebService {
 												.path("api/BTC/orderbook/")
 												.build();
 		
+		RestTemplate template = new RestTemplate();
 		ResponseEntity<OrderbookWsDTO> entity = template.getForEntity(uri.toUriString(), OrderbookWsDTO.class);
 		
-		System.out.println("## RESPONSE ##" + entity.getBody());
-		System.out.println("## FINISH ##");
 		
+		String[][] asks = entity.getBody().getAsks().clone();
+		String[][] bids = entity.getBody().getBids().clone();
+		String timestamp = entity.getBody().getTimestamp();
 		
+		List<Orderbook> response = new ArrayList<>();
+		
+		for(int line = 0; line < asks.length; line++) {
+//			System.out.println("\n[" + line + "] ASK PRICE: " + asks[line][0]);
+//			System.out.println("[" + line + "] ASK VOLUME: " + asks[line][1]);
+//			System.out.println("[" + line + "] BID PRICE: " + bids[line][0]);
+//			System.out.println("[" + line + "] BID VOLUME: " + bids[line][1]);
+//			System.out.println("");
+			
+			response.add(new Orderbook(null, asks[line][0], asks[line][1], bids[line][0], bids[line][1], timestamp));
+		}
 		
 
-// ## APENAS PARA REGISTRAR NO COMMIT MEU RACIOCINIO ANTERIOR ##
+//		System.out.println("## RESPONSE ##\n\n" + response.toString());
+//		System.out.println("\n\n\n## FINISH ##");
 		
-//		try {
-//			URL url = new URL(urlToCall);
-//			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-//			
-//			if(connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-//				throw new RuntimeException("HTTP error code: " + connection.getResponseCode());
-//			}
-//
-//			BufferedReader resposta = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-//			
-//			while(resposta.readLine() != null) {
-//				System.out.println("## RESPOSTA ## " + resposta.readLine());
-//			}
-//			System.out.println("## HERE ##");
-//			
-//		} catch (Exception e) {
-//			throw new Exception("Erro: " + e);
-//		}
-		
+		return response;
 	}
-
 }

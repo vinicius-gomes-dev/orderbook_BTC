@@ -1,11 +1,18 @@
 package com.btc.orderbook.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.btc.orderbook.models.Orderbook;
 import com.btc.orderbook.services.OrderbookService;
 
 @RestController
@@ -15,12 +22,18 @@ public class OrderbookController {
 	@Autowired
 	private OrderbookService service;
 	
+	
 	@GetMapping
-	public String tempMethod() {
-		return "Book route";
+	public ResponseEntity<List<Orderbook>> findAllByInterval(@RequestParam int interval) {
+		List<Orderbook> orderbookResDTO;
+		orderbookResDTO = service.findAllByInterval(interval);
+		
+		
+		return ResponseEntity.ok(orderbookResDTO);
 	}
 	
-	@GetMapping(path = "/get-all")
+	@PostMapping(path = "/get-all")
+	@ResponseStatus(value = HttpStatus.CREATED)
 	public void getAll() {
 		service.getAll();
 	}
