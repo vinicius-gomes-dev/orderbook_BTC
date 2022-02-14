@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.btc.orderbook.models.Orderbook;
+import com.btc.orderbook.dto.orderbook.OrderbookResponseDTO;
 import com.btc.orderbook.services.OrderbookService;
 
 @RestController
@@ -24,8 +24,8 @@ public class OrderbookController {
 	
 	
 	@GetMapping
-	public ResponseEntity<List<Orderbook>> findAllByInterval(@RequestParam int interval) {
-		List<Orderbook> orderbookResDTO;
+	public ResponseEntity<List<OrderbookResponseDTO>> findAllByInterval(@RequestParam int interval) {
+		List<OrderbookResponseDTO> orderbookResDTO;
 		orderbookResDTO = service.findAllByInterval(interval);
 		
 		

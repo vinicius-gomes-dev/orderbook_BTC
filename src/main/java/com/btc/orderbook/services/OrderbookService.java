@@ -20,9 +20,8 @@ public class OrderbookService {
 	
 	
 	
-	public List<Orderbook> findAllByInterval(int intervalParam) {
+	public List<OrderbookResponseDTO> findAllByInterval(int intervalParam) {
 		int interval = (intervalParam < 1) ? 1 : intervalParam;
-		
 		
 		List<Orderbook> result;
 		result = repository.findAll();
@@ -41,7 +40,7 @@ public class OrderbookService {
 		List<OrderbookResponseDTO> resultDTO;
 		resultDTO = result.stream().map(x -> new OrderbookResponseDTO(x)).collect(Collectors.toList());
 		
-		return result;
+		return resultDTO;
 	}
 	
 	public void getAll() {
