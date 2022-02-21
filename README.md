@@ -19,7 +19,8 @@
 ### Salvar a base de dados em um banco de dados
 - {{host}}/book/get-all
 
-<interval> = intervalo desejado
+
+{interval} = intervalo desejado
 
 ### Listagem com definição de intervalo
 - {{host}}/book?interval=<interval>
