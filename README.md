@@ -23,5 +23,5 @@
 {interval} = intervalo desejado
 
 ### Listagem com definição de intervalo
-- {{host}}/book?interval=<interval>
+- {{host}}/book?interval={interval}
 Ex.: {{host}}/book?interval=1
