@@ -12,7 +12,7 @@
 - https://www.mercadobitcoin.net/api/BTC/orderbook
 
 
-## APIs do Web
+## APIs do Web Service
 
 {{host}} = seu localhost ou onde quer que você tenha hospedado
 
@@ -26,3 +26,4 @@
 - {{host}}/book?interval={interval}
 
 Ex.: {{host}}/book?interval=1
+
